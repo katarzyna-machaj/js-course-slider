@@ -22,19 +22,35 @@ let showSlide = (slideNumber) => {
 };
 
 let showNextSlide = () => {
-    activeSlideNumber = activeSlideNumber + 1;
+    if (activeSlideNumber === 3) {
+        activeSlideNumber = 1;
+    } else {
+        activeSlideNumber = activeSlideNumber + 1;
+    }
+    showSlide(activeSlideNumber);
+};
+
+let showPreviousSlide = () => {
+    if (activeSlideNumber === 1) {
+        activeSlideNumber = 3;
+    } else {
+        activeSlideNumber = activeSlideNumber - 1;
+    }
     showSlide(activeSlideNumber);
 };
 
 let showSlide1 = () => {
+    activeSlideNumber = 1;
     showSlide(1);
 };
 
 let showSlide2 = () => {
+    activeSlideNumber = 2;
     showSlide(2);
 };
 
 let showSlide3 = () => {
+    activeSlideNumber = 3;
     showSlide(3);
 };
 
@@ -43,3 +59,4 @@ dot2.addEventListener('click', showSlide2);
 dot3.addEventListener('click', showSlide3);
 
 arrowRight.addEventListener('click', showNextSlide);
+arrowLeft.addEventListener('click', showPreviousSlide);
